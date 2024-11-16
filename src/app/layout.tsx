@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,8 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <style>
+          @import
+          url(&apos;https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap&apos;);
+        </style>
+      </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-league-spartan text-[hsl(180,14%,20%)] `}
       >
         {children}
       </body>
