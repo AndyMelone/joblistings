@@ -9,7 +9,7 @@ interface WorkItemsProps {
 export default function WorkItem({ className }: WorkItemsProps) {
   return (
     <div
-      className={`container  bg-[hsl(180,31%,95%)]  w-4/5 block  md:flex md:flex-row p-3 space-x-0 md:space-x-7 rounded-xl drop-shadow-xl mx-auto md:hover:rotate-1 md:hover:skew-x-1 md:transform-gpu md:hover:scale-x-105 md:transition md:duration-300 md:ease-in-out  ${className}`}
+      className={`container bg-[hsl(180,31%,95%)]  w-4/5 block  md:flex md:flex-row p-3 space-x-0 md:space-x-7 rounded-xl drop-shadow-xl mx-auto md:hover:rotate-1 md:hover:skew-x-1 md:transform-gpu md:hover:scale-x-105 md:transition md:duration-300 md:ease-in-out  ${className}`}
     >
       <div className="flex justify-between items-center">
         <div className="flex-shrink-0 justify-between w-20 h-20 relative ">
