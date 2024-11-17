@@ -35,12 +35,6 @@ export default function Home() {
               <AddDjobsForm />
             </div>
             <div className="gap-14 md:gap-8 flex flex-col ">
-              {/* WORK LIST */}
-              <WorkItem />
-              <WorkItem />
-              <WorkItem />
-              <WorkItem />
-              <WorkItem />
               <WorkItem />
             </div>
           </div>
