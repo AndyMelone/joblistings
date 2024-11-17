@@ -13,3 +13,11 @@ body {
     --radius: 0.5rem;
   }
 }
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
