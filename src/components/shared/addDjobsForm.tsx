@@ -4,6 +4,9 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import InputText from "./ui_custum/InputText";
+import ToggleButton from "./ui_custum/ToggleButton";
+import SelectUI from "./ui_custum/SelectUI";
 
 export default function AddDjobsForm() {
   const [current, setCurrent] = useState(1);
@@ -21,20 +24,11 @@ export default function AddDjobsForm() {
       title: "Informations générales",
       content: (
         <div>
-          <fieldset className="mb-[15px] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-5 my-3">
-            <label className=" text-lg md:text-xl" htmlFor="company">
-              Entreprise
-            </label>
-            <input
-              className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
-              id="company"
-              placeholder="Meldo"
-            />
-          </fieldset>
+          <InputText id="company" label="Entreprise" placeholder="Meldo" />
 
           <fieldset className="my-3">
             <label className="block">
-              <p className="my-1 text-xl ">Logo de l'entreprise</p>
+              <p className="my-1 text-base ">Logo de l'entreprise</p>
               <input
                 type="file"
                 className="block w-full text-sm text-gray-500 file:me-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[hsl(180,29%,50%)] file:text-white hover:file:bg-opacity-75 file:disabled:opacity-50 file:disabled:pointer-events-none"
@@ -44,24 +38,11 @@ export default function AddDjobsForm() {
               </p>
             </label>
           </fieldset>
-          <fieldset className="my-3">
-            <label className="inline-flex items-center cursor-pointer ">
-              <span className="text-base font-medium text-gray-900 dark:text-gray-300 mr-4">
-                Est-ce une nouvelle offre
-              </span>
-              <input type="checkbox" value="" className="sr-only peer" />
-              <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none   rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[hsl(180,29%,50%)]"></div>
-            </label>
-          </fieldset>
-          <fieldset className="my-3">
-            <label className="inline-flex items-center cursor-pointer ">
-              <span className="text-base font-medium text-gray-900 dark:text-gray-300 mr-4">
-                Est-ce en vedette
-              </span>
-              <input type="checkbox" value="" className="sr-only peer" />
-              <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none   rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[hsl(180,29%,50%)]"></div>
-            </label>
-          </fieldset>
+
+          <ToggleButton label="Est-ce une nouvelle offre" />
+
+          <ToggleButton label="Est-ce en vedette" />
+
           <div className="mt-[25px] flex justify-end gap-2 bottom-5 right-5 absolute">
             <button
               onClick={() => next()}
@@ -77,26 +58,21 @@ export default function AddDjobsForm() {
       title: "Détails du poste",
       content: (
         <div>
-          <fieldset className="mb-[15px] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-5 my-3">
-            <label className=" text-lg md:text-xl" htmlFor="position">
-              Titre du poste
-            </label>
-            <input
-              className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
-              id="position"
-              placeholder="Développeur"
-            />
-          </fieldset>
-          <fieldset className="mb-[15px] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-5 my-3">
-            <label className=" text-lg md:text-xl" htmlFor="location">
-              Localisation
-            </label>
-            <input
-              className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
-              id="location"
-              placeholder="Abidjan"
-            />
-          </fieldset>
+          <InputText
+            id="position"
+            label="Intitulé du poste"
+            placeholder="Développeur"
+            className="w-1/4"
+          />
+
+          <InputText
+            id="location"
+            label="Localisation"
+            placeholder="Abidjan"
+            className="w-1/4"
+          />
+
+          <SelectUI />
 
           <div className="mt-[25px] flex justify-end gap-2 bottom-5 right-5 absolute">
             <button
