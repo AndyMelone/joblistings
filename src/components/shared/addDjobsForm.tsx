@@ -163,13 +163,16 @@ export default function AddDjobsForm() {
               {steps.map((step, index) => (
                 <li
                   key={index}
-                  className={`flex items-center ${
-                    current == index && "text-[hsl(180,29%,50%)] "
+                  className={`flex items-center cursor-pointer ${
+                    current >= index && "text-[hsl(180,29%,50%)] "
                   } `}
+                  onClick={
+                    current >= index ? () => setCurrent(index) : undefined
+                  }
                 >
                   <span
                     className={`flex items-center justify-center w-5 h-5 me-2 text-xs border   rounded-full shrink-0 ${
-                      current == index && "border-[hsl(180,29%,50%)]"
+                      current >= index && "border-[hsl(180,29%,50%)]"
                     } `}
                   >
                     {index + 1}
