@@ -8,9 +8,9 @@ interface ToggleButtonProps {
 
 export default function ToggleButton({
   label,
-  value,
-  onChange,
-}: ToggleButtonProps) {
+}: // value,
+// onChange,
+ToggleButtonProps) {
   return (
     <fieldset className="my-3">
       <label className="inline-flex items-center cursor-pointer ">

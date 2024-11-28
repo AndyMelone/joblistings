@@ -28,7 +28,7 @@ export default function AddDjobsForm() {
 
           <fieldset className="my-3">
             <label className="block">
-              <p className="my-1 text-base ">Logo de l'entreprise</p>
+              <p className="my-1 text-base">Logo de l&apos;entreprise</p>
               <input
                 type="file"
                 className="block w-full text-sm text-gray-500 file:me-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[hsl(180,29%,50%)] file:text-white hover:file:bg-opacity-75 file:disabled:opacity-50 file:disabled:pointer-events-none"

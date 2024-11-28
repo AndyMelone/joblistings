@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: djoblist
+    ports:
+      - 5432:5432
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${NEXT_PUBLIC_APP_PORT}:${NEXT_PUBLIC_APP_PORT}
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
