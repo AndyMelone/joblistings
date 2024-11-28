@@ -12,7 +12,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 import {
   Popover,
@@ -55,14 +54,6 @@ export function FancyBox<T extends SelectOption>({
   const [selectedValues, setSelectedValues] = React.useState<T[]>([]);
   const [inputValue, setInputValue] = React.useState<string>("");
   const [openCombobox, setOpenCombobox] = React.useState(false);
-
-  // Fonction pour ajouter une nouvelle option
-  const handleCreateOption = () => {
-    if (inputValue && onCreateOption) {
-      onCreateOption(inputValue);
-      setInputValue("");
-    }
-  };
 
   const toggleOption = (option: T) => {
     setSelectedValues((current) =>
@@ -137,7 +128,7 @@ export function FancyBox<T extends SelectOption>({
           <Badge
             key={value}
             style={badgeStyle(color || "#ccc")}
-            className="mr-2 mb-2"
+            className="mr-2 mb-2 "
           >
             {label}
           </Badge>

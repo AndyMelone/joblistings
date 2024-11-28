@@ -55,7 +55,7 @@ export default function PostDetails({ next, prev }: Props) {
 
           <InputText id="location" label="Localisation" placeholder="Abidjan" />
 
-          <div className="flex gap-3 flex-col md:flex-row items-center ">
+          <div className="flex gap-3 flex-col md:flex-row  justify-center">
             <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
             <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
             <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
