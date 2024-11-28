@@ -6,7 +6,10 @@ import { useState } from "react";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import InputText from "./ui_custum/InputText";
 import ToggleButton from "./ui_custum/ToggleButton";
-import SelectUI from "./ui_custum/SelectUI";
+import MultipleSelect from "./ui_custum/MultipleSelect";
+import GeneralInfo from "../addDjob/GeneralInfo";
+import PostDetails from "../addDjob/PostDetails";
+import SkillsRequires from "../addDjob/Skillsrequire";
 
 export default function AddDjobsForm() {
   const [current, setCurrent] = useState(1);
@@ -22,96 +25,15 @@ export default function AddDjobsForm() {
   const steps = [
     {
       title: "Informations générales",
-      content: (
-        <div>
-          <InputText id="company" label="Entreprise" placeholder="Meldo" />
-
-          <fieldset className="my-3">
-            <label className="block">
-              <p className="my-1 text-base">Logo de l&apos;entreprise</p>
-              <input
-                type="file"
-                className="block w-full text-sm text-gray-500 file:me-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[hsl(180,29%,50%)] file:text-white hover:file:bg-opacity-75 file:disabled:opacity-50 file:disabled:pointer-events-none"
-              />
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
-                SVG, PNG, JPG or GIF (MAX. 800x400px).
-              </p>
-            </label>
-          </fieldset>
-
-          <ToggleButton label="Est-ce une nouvelle offre" />
-
-          <ToggleButton label="Est-ce en vedette" />
-
-          <div className="mt-[25px] flex justify-end gap-2 bottom-5 right-5 absolute">
-            <button
-              onClick={() => next()}
-              className="inline-flex h-[35px] items-center justify-center rounded  px-[15px] font-medium  border border-black   "
-            >
-              Suivant
-            </button>
-          </div>
-        </div>
-      ),
+      content: <GeneralInfo next={next} />,
     },
     {
       title: "Détails du poste",
-      content: (
-        <div>
-          <InputText
-            id="position"
-            label="Intitulé du poste"
-            placeholder="Développeur"
-            className="w-1/4"
-          />
-
-          <InputText
-            id="location"
-            label="Localisation"
-            placeholder="Abidjan"
-            className="w-1/4"
-          />
-
-          <SelectUI />
-
-          <div className="mt-[25px] flex justify-end gap-2 bottom-5 right-5 absolute">
-            <button
-              onClick={() => prev()}
-              className="inline-flex h-[35px] items-center justify-center rounded  px-[15px] font-medium     border border-black   "
-            >
-              Précédent
-            </button>
-            <button
-              onClick={() => next()}
-              className="inline-flex h-[35px] items-center justify-center rounded  px-[15px] font-medium   border border-black   "
-            >
-              Suivant
-            </button>
-          </div>
-        </div>
-      ),
+      content: <PostDetails next={next} prev={prev} />,
     },
     {
       title: "Compétences requises",
-      content: (
-        <div>
-          <div className="mt-[25px] flex justify-end gap-2 bottom-5 right-5 absolute">
-            <button
-              onClick={() => prev()}
-              className="inline-flex h-[35px] items-center justify-center rounded  px-[15px] font-medium  border border-black   "
-            >
-              Précédent
-            </button>
-
-            <button
-              onClick={() => {}}
-              className="inline-flex h-[35px] items-center justify-center rounded  px-[15px] font-medium  border border-black   "
-            >
-              Creer
-            </button>
-          </div>
-        </div>
-      ),
+      content: <SkillsRequires prev={prev} />,
     },
   ];
   return (
@@ -126,7 +48,7 @@ export default function AddDjobsForm() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0  data-[state=open]:animate-overlayShow" />
-          <Dialog.Content className="fixed left-1/2 top-1/2   w-3/4 sm:w-[70vh] lg:w-[90vh] h-[30rem]  -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow">
+          <Dialog.Content className="fixed left-1/2 top-1/2   w-full sm:mx-0 sm:w-[70vh] lg:w-[90vh] h-[30rem]  -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow">
             <Dialog.Title className="m-0 text-[17px] font-medium text-mauve12">
               Nouveau Djob
             </Dialog.Title>
@@ -135,7 +57,7 @@ export default function AddDjobsForm() {
               rien de temps.
             </Dialog.Description>
 
-            <ol className="flex flex-col md:flex-row mb-4 md:items-center w-full p-3 space-y-2 md:space-x-2 md:space-y-0 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+            <ol className="flex  flex-col  sm:flex-row mb-4 md:items-center w-full p-3 space-y-2 md:space-x-2 md:space-y-0 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
               {steps.map((step, index) => (
                 <li
                   key={index}
