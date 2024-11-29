@@ -14,7 +14,7 @@ datasource db {
 }
 
 model JobListings {
-  id          Int       @id @default(autoincrement())
+  id          String       @id @default(uuid())
   company     String
   logo        String
   isNew       Boolean   @map("new")
@@ -28,13 +28,18 @@ model JobListings {
   }
 
 model Language {
-  id          Int       @id @default(autoincrement())
+  id          String       @id @default(uuid())
   name        String    @unique
 
 }
 
 model Tool {
-  id          Int       @id @default(autoincrement())
+  id          String       @id @default(uuid())
   name        String    @unique
+}
 
+model contrat {
+  id          String       @id @default(uuid())
+  name        String    @unique
+  color       String?
 }

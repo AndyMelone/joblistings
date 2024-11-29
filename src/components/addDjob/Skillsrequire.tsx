@@ -36,6 +36,10 @@ export default function SkillsRequires({ prev }: Props) {
           <FancyBox
             options={languages.datas}
             placeholder={languages.labelPlaceholder}
+            onCreateOption={() => {}}
+            onNewValueChange={() => {}}
+            newValue={""}
+            newPlaceholder={"Ajouter une nouvelle compétence"}
           />
         </div>
         <div className="space-y-2">
@@ -45,6 +49,10 @@ export default function SkillsRequires({ prev }: Props) {
           <FancyBox
             options={languages.datas}
             placeholder={languages.labelPlaceholder}
+            onCreateOption={() => {}}
+            onNewValueChange={() => {}}
+            newValue={""}
+            newPlaceholder={"Ajouter une nouvelle compétence"}
           />
         </div>
       </div>

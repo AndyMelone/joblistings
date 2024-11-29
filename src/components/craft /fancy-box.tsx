@@ -28,7 +28,6 @@ interface SelectOption {
 interface FancyBoxProps<T extends SelectOption> {
   options: T[];
   placeholder?: string;
-  selectedLabels?: string;
   newPlaceholder?: string;
   newValue?: string;
   onNewValueChange?: (value: string) => void;
@@ -44,7 +43,6 @@ const badgeStyle = (color: string) => ({
 export function FancyBox<T extends SelectOption>({
   options,
   placeholder = "Select labels",
-  selectedLabels = "selected",
   newPlaceholder = "Add new label",
   newValue,
   onNewValueChange,

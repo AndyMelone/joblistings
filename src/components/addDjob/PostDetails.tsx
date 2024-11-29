@@ -1,17 +1,7 @@
 import React from "react";
 import InputText from "../shared/ui_custum/InputText";
-import MultipleSelect from "../shared/ui_custum/MultipleSelect";
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { FancyBoxSelectOne } from "../craft /fancy-box-one";
+import { useContrat } from "@/app/hooks/useContrat";
 
 const data = [
   { value: "fullTime", label: "Temps plein", color: "#FFC107" },
@@ -19,30 +9,14 @@ const data = [
   { value: "freelance", label: "Freelance", color: "#FFC107" },
 ];
 
-function CustomSelect() {
-  return (
-    <Select>
-      <SelectTrigger className="w-full sm:w-1/2 md:w-1/3">
-        <SelectValue placeholder="Selectionner le type de contrat" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Type de contrat</SelectLabel>
-          <SelectItem value="fullTime">Temps plein</SelectItem>
-          <SelectItem value="PartTime">Temps partiel</SelectItem>
-          <SelectItem value="freelance">Freelance</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  );
-}
-
 interface Props {
   next: () => void;
   prev: () => void;
 }
 
 export default function PostDetails({ next, prev }: Props) {
+  const { contrats } = useContrat();
+  console.log(contrats);
   return (
     <>
       <div className="">
@@ -56,7 +30,11 @@ export default function PostDetails({ next, prev }: Props) {
           <InputText id="location" label="Localisation" placeholder="Abidjan" />
 
           <div className="flex gap-3 flex-col md:flex-row  justify-center">
-            <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
+            <FancyBoxSelectOne
+              options={contrats}
+              isAddNew
+              newChange={() => {}}
+            />
             <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
             <FancyBoxSelectOne options={data} isAddNew newChange={() => {}} />
           </div>

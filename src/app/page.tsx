@@ -1,3 +1,5 @@
+"use client";
+
 import AddDjobsForm from "@/components/shared/addDjobsForm";
 import WorkItem from "@/components/shared/workItem";
 import { IoMdClose } from "react-icons/io";

@@ -19,7 +19,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-// Typage général pour les options
 interface Option {
   value: string;
   label: string;
@@ -27,7 +26,7 @@ interface Option {
 }
 
 interface Props {
-  options: Option[]; // Les options dynamiques
+  options: Option[];
   selectedValue?: Option;
   selectPlaceholder?: string;
   searchPlaceholder?: string;
